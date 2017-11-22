@@ -1,3 +1,5 @@
 ## Fabrizio's repository
 
-[Week One](FabrizioFinta/week-01)
+### WEEK ONE
+[Day Two](/week-01/day02) <br>
+[Day Three](/week-01/day03)
