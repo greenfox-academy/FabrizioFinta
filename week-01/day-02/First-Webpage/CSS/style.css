@@ -1,0 +1,30 @@
+
+body {
+    display: block;
+    margin: 0;
+    background-image: url(topography.png)
+}
+
+#main,
+#navigation{
+    padding-top: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.nav,
+#navigation {
+    padding-top: 10px;
+    text-align: right;
+    height: 30px;
+    color:  #ff0099;
+    background-color: #333333;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    color: #ff0099;
+}
