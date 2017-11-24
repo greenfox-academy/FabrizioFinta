@@ -1,0 +1,32 @@
+#content {
+    height: 512px;
+    width: 348px;
+    border: 10px solid #4285f4;
+}
+
+div[class] {
+    border: 0px;
+    height: 128px;
+    width: 348px;
+    text-align: center;
+    font: 36px Arial;
+    vertical-align: middle;
+    line-height: 128px; 
+    color: #ffffff;
+}
+
+.N{
+    background-color: #e67676;
+}
+
+.E{
+    background-color: #f2f062;
+}
+
+.S{
+    background-color: #a9e6e6;
+}
+
+.W{
+    background-color: #7692e4;
+}
