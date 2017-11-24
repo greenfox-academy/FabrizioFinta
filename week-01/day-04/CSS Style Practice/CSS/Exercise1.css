@@ -1,0 +1,18 @@
+body {
+    margin: 0px 0px 0px 0px
+}
+.block {
+    width: 337px;
+    height: 115px;
+    border: 5px solid #7dce94;
+    margin: 0px 0px 16px 4px;
+    padding: 18px 0px 0px 12px;
+    background-color: #0e91a1;
+    font: 36px Helvetica;
+    color: #005566;
+}
+
+img {
+    float: right;
+    
+}
