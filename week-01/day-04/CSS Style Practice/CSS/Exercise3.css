@@ -1,0 +1,16 @@
+#First, #Second {
+    height: 256px;
+    width: 347px;
+    border: 16px solid #4285f4;
+    margin-bottom: 16px;
+    text-align: center;
+    font: 36px Arial;
+    vertical-align: middle;
+    line-height: 128px; 
+    color: #ffffff;
+    background-color: #e67676;
+}
+
+#Second {
+    background-color: #a9e6e6
+}
