@@ -1,0 +1,19 @@
+span {
+    color: white;
+    text-align: center;
+    font: 30px "arial rounded MT";
+    line-height: 137px;
+    margin: 0px 5px 10px 0px;
+    display:  inline-block;
+    height: 137px;
+    width: 137px;
+    border-radius: 68.5px;
+    background: #0cebde;
+}
+div span:first-child {
+    background: #b90ceb;    
+}
+
+div span:last-child {
+    background: #ebbe0c;
+}

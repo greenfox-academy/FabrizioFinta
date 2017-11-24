@@ -1,0 +1,27 @@
+body {
+    margin-top: 0px;
+}
+
+h1 {
+    margin: 0px 0px 8px 0px;
+    color: #f95f55;
+}
+
+h2 {
+    color: #892ade;
+    margin: 0px 0px 0px 0px; 
+}
+
+ul {
+    list-style-type: square;
+}
+
+ol li {
+    list-style-type: upper-roman;
+    color: #ba2cb2; 
+    text-decoration: underline;
+}
+
+ol li:last-child {
+    color: #000000;
+}
