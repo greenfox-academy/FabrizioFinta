@@ -12,7 +12,7 @@ public class CountFromTo {
             System.out.println("Second number should be bigger.");
         }
         else {
-            for (int num = 0; num1 < num2; num1++) {
+            for (;num1 < num2; num1++) {
                 System.out.println(num1);
 
             }
