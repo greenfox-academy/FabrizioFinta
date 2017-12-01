@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class DrawDiamond {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a whole positive number");
+        System.out.println("Enter an intiger number");
         int number = scanner.nextInt();
-
-        for (int i = 0; i < (number-1); i+=2) {
+//Created the top first
+        for (int i = 0; i < (number-1); i+=2) { //
             for (int b = 0; b <= number-i; b+=2) {
                 System.out.print(" ");
             }
