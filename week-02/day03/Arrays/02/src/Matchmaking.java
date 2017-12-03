@@ -6,9 +6,8 @@ public class Matchmaking {
         ArrayList<String> order = new ArrayList<String>();
 
         order.addAll(girls);
-        System.out.println(order);
-        for (int i = 0; i < boys.size(); i++) {
-            order.add((i+1), boys.get(i));
+        for (int i = 1; i < boys.size(); i+=1) {
+            order.add(i*2-1, boys.get(i));
         }
         System.out.println(order);
     }
