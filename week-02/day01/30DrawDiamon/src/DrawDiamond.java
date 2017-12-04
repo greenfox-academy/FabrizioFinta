@@ -21,7 +21,7 @@ public class DrawDiamond {
                     System.out.println("ok");
                 }
                 else */
-                for (int bneg = 0; bneg <= ineg + 1; bneg += 2) {
+                for (int bneg = 0; bneg <= ineg ; bneg += 2) {
                     System.out.print(" ");
                 }
                 for (int aneg = 0; aneg < number - ineg; aneg++) {
