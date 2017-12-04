@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class DrawDiamond {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter an intiger number");
+        System.out.println("Enter an integer number");
         int number = scanner.nextInt();
 //Created the top first
         for (int i = 0; i < (number-1); i+=2) { //
