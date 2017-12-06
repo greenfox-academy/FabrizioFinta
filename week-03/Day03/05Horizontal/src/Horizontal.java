@@ -18,7 +18,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
       for (int i = 0; i < 3; i++) {
         horizontalLineDrawer(graphics);
       }
-      
+      System.out.println("Check the pop-up window.");
       
       
     }
