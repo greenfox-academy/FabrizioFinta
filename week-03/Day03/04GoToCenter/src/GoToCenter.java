@@ -13,6 +13,7 @@ public class GoToCenter {
     // and draws a line from that point to the center of the canvas.
     // draw 3 lines with that function.
     Scanner scanner = new Scanner(System.in);
+    
     for (int i = 0; i < 3; i++){
       System.out.println("Please enter the line's X cordinate:");
       int x = scanner.nextInt();
@@ -20,9 +21,7 @@ public class GoToCenter {
       int y = scanner.nextInt();
       lineCreator(x, y, graphics);
     }
-    
-    
-    
+
   }
   
   private static void lineCreator(int x, int y, Graphics graphics) {
