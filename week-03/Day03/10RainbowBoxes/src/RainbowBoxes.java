@@ -1,3 +1,5 @@
+import com.sun.xml.internal.bind.v2.TODO;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -22,12 +24,12 @@ public class RainbowBoxes {
     
     System.out.println("Please enter the size of your square (px):");
     int size = scanner.nextInt();
-    
+    //TODO: Try to solve that the user type a color than translate it to java to get this color from its palette
     /*System.out.println("Please enter your favorite color:");
     String colorString = scanner.nextLine();
     Color color;
       try {
-        Field field = Color.class.getField("yellow");
+        Field field = Color.class.getField("yellow"); //TODO ask what this field thing is
         color = (Color)field.get(null);
       } catch (Exception e) {
         color = null;
