@@ -23,22 +23,54 @@ public class PurpleSteps3D {
     
     sizeOptimizer(size); //It is not 100% thing because of the remainders
     //TODO do it to work like 100% - do not show the cubes what are not the perfect size
-    
+    int cordSize = 0;
     for (int i = 0; i< WIDTH/size; i++) {
-      graphics.fill3DRect(size*i+size*i, size*i+size*i, size*i, size*i, true);
+      
+      if (i==0){
+        graphics.fill3DRect(size*i, size*i, size+size*i, size+size*i, true);
+        cordSize = cordSize + size;
+      }
+      else{
+        graphics.fill3DRect(cordSize, cordSize, size+size*i, size+size*i, true);
+        cordSize = cordSize + size*i + size;
+      }
     }
   }
   
   private static void sizeOptimizer(int size) {
-    while ((WIDTH) % size == 0) {
-      WIDTH--;
+    if (WIDTH > REALHEIGHT && !(WIDTH % size == 0 && REALHEIGHT % size == 0)){
+      while ((WIDTH) % size == 0) {
+        WIDTH--;
+      }
     }
-    while ((HEIGHT - 31) % size == 0) {
-      HEIGHT--;
+    else if (WIDTH < REALHEIGHT && !(WIDTH % size == 0 && REALHEIGHT % size == 0)) {
+      while ((WIDTH) % size == 0) {
+        WIDTH++;
+      }
     }
+    else if (WIDTH < REALHEIGHT && (WIDTH % size == 0 && !(REALHEIGHT % size == 0))){
+      while ((REALHEIGHT) % size == 0) {
+        REALHEIGHT--;
+      }
+    }
+    else if (WIDTH > REALHEIGHT && (!(WIDTH % size == 0) && REALHEIGHT % size == 0)) {
+      while ((REALHEIGHT) % size == 0) {
+        REALHEIGHT++;
+      }
+    }
+    else if (WIDTH == REALHEIGHT && !(WIDTH % size == 0)) {
+      while ((WIDTH) % size == 0) {
+        WIDTH++;
+      }
+    }
+    
+    /*while ((REALHEIGHT - 31) % size == 0) {
+      REALHEIGHT--;
+    }*/
   }
   //    Don't touch the code below
   static int WIDTH = 320;
+  static int REALHEIGHT = 312;
   static int HEIGHT = 343;
   
   public static void main(String[] args) {
