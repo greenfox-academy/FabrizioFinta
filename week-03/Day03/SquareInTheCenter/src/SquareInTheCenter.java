@@ -15,6 +15,8 @@ public class SquareInTheCenter {
     
   }
   
+  
+
   //    Don't touch the code below
   static int WIDTH = 320;
   static int HEIGHT = 343; // =312
