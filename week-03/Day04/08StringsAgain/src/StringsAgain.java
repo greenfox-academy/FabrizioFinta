@@ -4,19 +4,22 @@ public class StringsAgain {
     System.out.println(stringMinator1(stringSample));
   }
   
-  private static String stringMinator1(String a) {
-    Character b = null;
-    if (a.length() == 0 && a.charAt(0) == 'x') {
-        return "";
-      }
-    else if (a.length() == 0){
-      return "" + a.charAt(0);
+  private static String stringMinator1(String stringSample) {
+  if (stringSample.length()==0){
+    if (stringSample.charAt(0)== 'x'){
+      return stringSample + "";
     }
-    else if (a.charAt(0) == 'x') {
-        return "" + stringMinator1(a.substring(1, a.length()));
+    else {
+      return stringSample + stringSample.charAt(0);
     }
-     else {
-        return a.charAt(0) + stringMinator1(a.substring(1, a.length()));
-     }
+  }
+  if (stringSample.charAt(0) == 'x'){
+    stringMinator1(stringSample.substring(0, stringSample.length()));
+    return "" + stringSample;
+  }
+  else {
+    stringMinator1(stringSample.substring(0,stringSample.length()));
+    return stringSample.charAt(0) + stringSample ;
+  }
   }
 }
