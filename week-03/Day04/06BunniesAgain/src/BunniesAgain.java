@@ -1,19 +1,17 @@
 public class BunniesAgain {
   public static void main(String[] args) {
-    ultimateBunnyEarCounter(20);
+    System.out.println(ultimateBunnyEarCounter(20));
   }
   
-  private static void ultimateBunnyEarCounter(int b) {
+  private static int ultimateBunnyEarCounter(int b) {
     if (b == 0) {
-      b = 0;
+      return 0;
     } else {
       if (b % 2 == 0) {
-        ultimateBunnyEarCounter(b - 1);
-        b = b + b;
+        return 2 + ultimateBunnyEarCounter(b - 1);
       }
-      if (b % 2 == 1) {
-        ultimateBunnyEarCounter(b - 1);
-        b = b + b + b;
+      else {
+        return 3 + ultimateBunnyEarCounter(b - 1);
       }
     }
   }
