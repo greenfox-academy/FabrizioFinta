@@ -4,6 +4,5 @@ public class Student {
   }
   
   public  void question(Teacher teacher){
-    System.out.println(teacher.answer());
   }
 }

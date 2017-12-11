@@ -3,6 +3,6 @@ public class MainTeachersAndStudents {
     Student student = new Student();
     Teacher teacher = new Teacher();
     
-    student.
+    student.question();
   }
 }

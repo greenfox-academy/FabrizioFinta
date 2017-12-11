@@ -3,12 +3,13 @@ import java.util.Scanner;
 public class GuessingGame {
   
   public static Scanner scanner = new Scanner(System.in);
+  public static Scanner anotherScanner = new Scanner(System.in);
   
   public static void main(String[] args) {
     
     //Game loop
     boolean gameRun = true;
-    while (gameRun) {
+    do {
       
       //Game options
       System.out.println("Please enter the minimum range of the guessing game: ");
@@ -56,13 +57,15 @@ public class GuessingGame {
       
       //Want to continue the game loop user option
       gameRun = wantToContinue();
-    }
+    } while (gameRun);
+    
+    System.out.println("Game created by Fabrizio Finta");
   }
   
   private static boolean wantToContinue() {
     System.out.println();
     System.out.println("Want to play again? (Yes/No)");
-    String wantToPlay = scanner.nextLine();
+    String wantToPlay = anotherScanner.nextLine();
     if (wantToPlay.equalsIgnoreCase("yes")){
       return true;
     } else if (wantToPlay.equalsIgnoreCase("no")){
@@ -106,19 +109,19 @@ public class GuessingGame {
   
   public static int guessingCheat(int lives) {
     boolean choice = true;
-    while (choice){
+    do {
       System.out.println("Please type start if you are ready:");
-      String readyToStart = scanner.nextLine();
-      if (readyToStart.equalsIgnoreCase("start")){
+      String readyToStart = anotherScanner.nextLine();
+      if (readyToStart.equalsIgnoreCase("start")) {
         choice = false;
-      } else if (readyToStart.equalsIgnoreCase("cheat1")){
+      } else if (readyToStart.equalsIgnoreCase("cheat1")) {
         System.out.println("Cheat code activated!");
-        lives = lives*2;
+        lives = lives * 2;
         System.out.println("You have " + lives + " lives left.");
         choice = false;
-      } else if (readyToStart.equalsIgnoreCase("cheat2")){
+      } else if (readyToStart.equalsIgnoreCase("cheat2")) {
         System.out.println("Cheat code activated!");
-        lives = lives*2;
+        lives = lives * 2;
         System.out.println("You have " + lives + " lives left.");
         choice = false;
       } else {
@@ -127,7 +130,7 @@ public class GuessingGame {
         System.out.println();
         choice = true;
       }
-    }
+    } while (choice);
     return lives;
   }
 }
