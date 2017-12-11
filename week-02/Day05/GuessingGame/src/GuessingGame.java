@@ -84,12 +84,16 @@ public class GuessingGame {
       guessedTheNumber = true;
     } else if (guess > number+10){
       System.out.println("It's too high. Try it again!");
+      System.out.println();
     } else if (guess > number){
      System.out.println("It's too high, but close! Try it again!");
+      System.out.println();
     } else if (guess < number-10){
       System.out.println("It's too low! Try it again!");
+      System.out.println();
     } else if (guess < number) {
       System.out.println("It's too low, but close! Try it again!");
+      System.out.println();
     }
     return guessedTheNumber;
   }
