@@ -129,7 +129,7 @@ public class GuessingGame {
         System.out.println("You have " + lives + " lives left.");
         choice = false;
       } else {
-        System.out.println("Invalid command.");
+        System.err.println("Invalid command.");
         //System.out.println("Game is running.");
         System.out.println();
         choice = true;
