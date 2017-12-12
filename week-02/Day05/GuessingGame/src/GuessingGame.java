@@ -118,12 +118,12 @@ public class GuessingGame {
       String readyToStart = anotherScanner.nextLine();
       if (readyToStart.equalsIgnoreCase("start")) {
         choice = false;
-      } else if (readyToStart.equalsIgnoreCase("cheat1")) {
+      } else if (readyToStart.equalsIgnoreCase("bolondbea")) {
         System.out.println("Cheat code activated!");
         lives = lives * 2;
         System.out.println("You have " + lives + " lives left.");
         choice = false;
-      } else if (readyToStart.equalsIgnoreCase("cheat2")) {
+      } else if (readyToStart.equalsIgnoreCase("beababa")) {
         System.out.println("Cheat code activated!");
         lives = lives * 2;
         System.out.println("You have " + lives + " lives left.");
