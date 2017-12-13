@@ -13,4 +13,10 @@ class AnagramTest {
   void isNotAnagram() {
     assertFalse(test.isAnagram("madár", "teknős"));
   }
+  
+  @Test
+  void inputNull() throws NullPointerException {
+    assertFalse(test.isAnagram(null,null));
+    
+  }
 }
