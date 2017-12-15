@@ -10,6 +10,7 @@ public class CountLetter {
     }
     Collections.sort(charOfText);
     int LetterCount = 0;
+
     for (int i = 0; i < charOfText.size()-1; i++) {
       if (charOfText.get(i) == charOfText.lastIndexOf(charOfText)) {
         LetterCount++;
