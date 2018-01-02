@@ -22,7 +22,7 @@ public class Thing implements Comparable<Thing> {
   public int compareTo(Thing o) {
     if (completed == o.completed){
      return name.compareToIgnoreCase(o.name);
-    } else if (completed == true){
+    } else if (completed){
       return -1;
     } else return 1;
   }
