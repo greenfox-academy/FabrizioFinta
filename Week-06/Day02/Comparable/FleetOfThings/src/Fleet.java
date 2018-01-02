@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by aze on 2017.03.29..
@@ -12,6 +14,10 @@ public class Fleet {
   
   public void add(Thing thing) {
     things.add(thing);
+  }
+  
+  public void sort(){
+    Collections.sort(this.things);
   }
   
   @Override
