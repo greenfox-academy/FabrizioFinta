@@ -21,11 +21,9 @@ public class Lottery {
     ArrayList<Integer> numberArray = new ArrayList<>();
     ArrayList<Integer> numberIncidence = new ArrayList<>();
     // HashMap<Integer, Integer> numberInc = new HashMap<>();    future feature
-    
-    for (String lines : fileArray) ; //add data to an array
     for (int index = 0; index < fileArray.size(); index++) { //get the substring in every line after the "Ft"
       String lineOfTheArray = fileArray.get(index);
-      lineOfTheArray = lineOfTheArray.substring(lineOfTheArray.lastIndexOf("t;"), lineOfTheArray.length());
+      lineOfTheArray = lineOfTheArray.substring(lineOfTheArray.lastIndexOf("t;")+2, lineOfTheArray.length());
       //Which line has the last t; the lucky numbers are starting from there
       fileArray.set(index, lineOfTheArray); //Remove the useless data and replace the lucky numbers
       System.out.println(fileArray.get(0));
@@ -46,7 +44,6 @@ public class Lottery {
       }
     }
     for (int i = 0; i < 5; i++) {
-      System.out.print(numberArray.get(i) + " ");
     }
     
     /*for (int index = 1; index <= numberArray.size(); index++) {
