@@ -13,7 +13,11 @@ public class Exercise09 {
     Stream<Character> characterStream =
             new String(myCharArray).chars()
                     .mapToObj(c ->((char) c));
-  
-    System.out.println(characterStream.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString());
+    
+    characterStream.collect(
+            StringBuilder::new,
+            StringBuilder::appendCodePoint,
+            StringBuilder::append)
+            .toString();
   }
 }
