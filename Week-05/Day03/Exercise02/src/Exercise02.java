@@ -13,7 +13,5 @@ public class Exercise02 {
             .filter(n -> Math.abs(n) % 2 == 1)
             .collect(Collectors.toList());
     System.out.println(oddNumbers);
-    
-    //triing out a new commit message form2
   }
 }
