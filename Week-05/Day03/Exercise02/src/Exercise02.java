@@ -14,6 +14,6 @@ public class Exercise02 {
             .collect(Collectors.toList());
     System.out.println(oddNumbers);
     
-    //triing out a new commit message form
+    //triing out a new commit message form2
   }
 }
