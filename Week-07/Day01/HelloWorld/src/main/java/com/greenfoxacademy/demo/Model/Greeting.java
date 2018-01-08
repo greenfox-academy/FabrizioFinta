@@ -4,8 +4,15 @@ public class Greeting {
   
   private long id;
   private String content;
+  private int age;
   
   public Greeting(){}
+  
+  public Greeting(long id, String content, int age) {
+    this.id = id;
+    this.content = content;
+    this.age = age;
+}
   
   public Greeting(long id, String content) {
     this.id = id;
