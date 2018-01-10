@@ -18,7 +18,10 @@ public class multipleAccountWEB {
     accounts.add(new BankAccount("Pumba",1500,"Pig"));
     accounts.add(new BankAccount("Timon",4000,"Alligator"));
     accounts.add(new BankAccount("Ska",255.50,"Elephant"));
+    accounts.get(3).promoteToKing();
+    accounts.get(4).makeBadGuy();
     model.addAttribute("accounts", accounts);
+    model.addAttribute("fancyYes", "<b>Yes</b>");
     return "allAccounts";
   }
 }
