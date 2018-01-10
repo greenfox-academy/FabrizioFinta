@@ -13,11 +13,11 @@ import java.util.List;
 public class showWEBController {
   @GetMapping("/show")
   public String showFields(Model model){
-    BankAccount simba = new BankAccount("Simba", "2000", "lion");
+    BankAccount simba = new BankAccount("Simba", 2000.21312, "lion");
     model.addAttribute("name", simba.getName());
     model.addAttribute("article", checkFirstLetter(simba));
     model.addAttribute("animalType", simba.getAnimalType());
-    model.addAttribute("balance", simba.getBalance());
+    model.addAttribute("balance", String.format("%.02d", simba.getBalance()));
     return "show";
   }
   
