@@ -24,7 +24,10 @@
         <td th:text="${account.getAnimalType()}"></td>
         <td th:utext=" ${account.isKing()} ? ${fancyYes} : 'No'"></td>
         <td th:text="${account.isGoodGuy()} ? 'Bad guy' : 'Good guy'"></td>
-        <td><form action="#" th:action="${account.increaseBalance()}" method="post"><input type="submit" value="Donate"/></form></td>
+        <td><form action="#" th:action="@{'/allAccounts'}" method="post">
+            <input type="hidden" th:field="${account.getName()}" th:text="${account.getName()}"/>
+            <input type="submit" value="Donate"/>
+        </form></td>
     </tr>
 </table>
 </body>
