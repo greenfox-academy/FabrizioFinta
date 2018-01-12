@@ -4,6 +4,7 @@ import com.greenfoxacademy.bankofsymba.Models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ public class showWEBController {
     model.addAttribute("balance", String.format("%.02d", simba.getBalance()));
     return "show";
   }
+  
   
   private String checkFirstLetter(BankAccount simba) {
     List<Character> Vowels = new ArrayList<>(Arrays.asList('A', 'E', 'I', 'O', 'U'));
