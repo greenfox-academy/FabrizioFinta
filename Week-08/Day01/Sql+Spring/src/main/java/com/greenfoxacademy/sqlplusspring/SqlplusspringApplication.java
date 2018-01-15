@@ -19,6 +19,5 @@ public class SqlplusspringApplication implements CommandLineRunner{
 	
   @Override
   public void run(String... args) throws Exception {
-		cruds.save(new Todo("I have to learn Object Relational Mapping"));
   }
 }
