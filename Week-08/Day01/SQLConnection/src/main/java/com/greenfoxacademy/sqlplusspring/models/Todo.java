@@ -13,6 +13,7 @@ public class Todo {
   private int ID;
   private String title;
   private boolean isUrgent;
+  private boolean isDone;
   
   public Todo() {
   }
@@ -20,8 +21,6 @@ public class Todo {
   public Todo(String title) {
     this.title = title;
   }
-  
-  private boolean isDone;
   
   public int getID() {
     return ID;
@@ -43,15 +42,15 @@ public class Todo {
     return isUrgent;
   }
   
-  public void setUrgent(boolean urgent) {
-    isUrgent = urgent;
+  public void setUrgent() {
+    isUrgent = true;
   }
   
   public boolean isDone() {
     return isDone;
   }
   
-  public void setDone(boolean done) {
-    isDone = done;
+  public void setDone() {
+    isDone = true;
   }
 }
