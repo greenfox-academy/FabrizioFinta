@@ -1,7 +1,16 @@
 package com.greenfoxacademy.sqlplusspring.models;
 
-public class Todo {
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
+public class Todo {
+  
+  @Id
+  @GeneratedValue (strategy = GenerationType.AUTO)
   private int ID;
   private String title;
   private boolean isUrgent;
