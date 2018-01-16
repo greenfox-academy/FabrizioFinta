@@ -26,6 +26,11 @@
             <input type="submit" value="delete"/>
             </form>
         </td>
+        <td>
+            <form action="#" th:action="@{*{ID}} + '/edit'" method="GET">
+                <input type="submit" value="edit"/>
+            </form>
+        </td>
     </tr>
 </table>
 </body>

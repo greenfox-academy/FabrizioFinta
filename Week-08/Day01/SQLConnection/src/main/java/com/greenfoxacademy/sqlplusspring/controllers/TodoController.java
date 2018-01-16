@@ -52,4 +52,17 @@ public class TodoController {
     cruds.delete(todoId);
     return "redirect:/todo/";
   }
+  
+  @GetMapping("{todoId}/edit")
+  public String getEditPage(@PathVariable int todoId, Model model){
+    model.addAttribute("todo", cruds.findOne(todoId));
+    return "edit";
+  }
+  
+  @PostMapping("{todoId}/edit")
+  public String editTodo(@PathVariable int todoId, @ModelAttribute Todo todo){
+    todo.setID(todoId);
+    cruds.save(todo);
+    return "redirect:/todo/";
+  }
 }
