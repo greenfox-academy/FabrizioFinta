@@ -9,7 +9,8 @@
         <form action="#" th:object="${todo}" th:action="@{add}" method="POST">
             <input type="text" th:field="*{title}"/>
             <input type="hidden" th:field="*{ID}"/>
-            <input type="hidden" th:field="*{done}"/>
+            <input type="hidden" th:field="*{isDone}"/>
+            <input type="checkbox" th:field="*{isUrgent}"/>
             <input th:type="submit" value="Add"/>
         </form>
     </body>

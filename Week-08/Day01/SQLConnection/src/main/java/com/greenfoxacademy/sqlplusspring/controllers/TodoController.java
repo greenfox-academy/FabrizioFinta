@@ -27,9 +27,9 @@ public class TodoController {
       cruds.findAll().forEach(todos:: add);
     }
     else if (isActive) {
-      todos = StreamSupport.stream(cruds.findAll().spliterator(), false).filter(todo -> todo.isDone() == true).collect(Collectors.toList());
+      todos = StreamSupport.stream(cruds.findAll().spliterator(), false).filter(todo -> todo.getIsDone() == true).collect(Collectors.toList());
     } else if(!isActive) {
-      todos = StreamSupport.stream(cruds.findAll().spliterator(), false).filter(todo -> todo.isDone() == false).collect(Collectors.toList());
+      todos = StreamSupport.stream(cruds.findAll().spliterator(), false).filter(todo -> todo.getIsDone() == false).collect(Collectors.toList());
     }
     model.addAttribute("todos", todos);
     return "todo";
@@ -44,6 +44,12 @@ public class TodoController {
   @PostMapping("/add")
   public String postNewTodo(@ModelAttribute Todo newTodo){
     cruds.save(newTodo);
+    return "redirect:/todo/";
+  }
+  
+  @PostMapping("{todoId}/delete")
+  public String deleteTodo(@PathVariable int todoId){
+    cruds.delete(todoId);
     return "redirect:/todo/";
   }
 }
