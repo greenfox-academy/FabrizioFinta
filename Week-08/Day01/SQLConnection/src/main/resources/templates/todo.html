@@ -33,5 +33,14 @@
         </td>
     </tr>
 </table>
+<form action="/todo/" method="get">
+        <input th:type="text" name="title"/>
+        <select name="isActive">
+            <option value="">All</option>
+            <option value="true">Done</option>
+            <option value="false">Undone</option>
+        </select>
+        <input type="submit" value="Submit"/>
+</form>
 </body>
 </html>

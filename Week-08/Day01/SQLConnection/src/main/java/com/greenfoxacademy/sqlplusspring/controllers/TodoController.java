@@ -2,11 +2,11 @@ package com.greenfoxacademy.sqlplusspring.controllers;
 
 import com.greenfoxacademy.sqlplusspring.models.Todo;
 import com.greenfoxacademy.sqlplusspring.repository.TodoRepo;
+import com.greenfoxacademy.sqlplusspring.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,20 +18,20 @@ import java.util.stream.StreamSupport;
 public class TodoController {
   
   @Autowired
-  TodoRepo cruds;
+  TodoService todoService;
+  
   
   @GetMapping({"/", "/list"})
-  public String list(@RequestParam (value = "isActive", required = false) Boolean isActive, Model model) {
-    List<Todo> todos = new ArrayList<>();
-    if(isActive == null){
-      cruds.findAll().forEach(todos:: add);
+  public String list(@RequestParam (value = "title", required = false) String title, @RequestParam (value = "isActive", required = false) Boolean isActive, Model model) {
+    if (title != null && isActive != null){
+      model.addAttribute("todos", todoService.filterIsDoneORTitle(title,isActive));}
+    else if (title == null && isActive == null){
+      model.addAttribute("todos", todoService.getAllTodo());
+    } else if (title != null && isActive == null){
+      model.addAttribute("todos", todoService.filterTitle(title));
+    } else if (title == null && isActive != null) {
+      model.addAttribute("todos", todoService.filterIsDone(isActive));
     }
-    else if (isActive) {
-      todos = StreamSupport.stream(cruds.findAll().spliterator(), false).filter(todo -> todo.getIsDone() == true).collect(Collectors.toList());
-    } else if(!isActive) {
-      todos = StreamSupport.stream(cruds.findAll().spliterator(), false).filter(todo -> todo.getIsDone() == false).collect(Collectors.toList());
-    }
-    model.addAttribute("todos", todos);
     return "todo";
   }
   
@@ -43,26 +43,26 @@ public class TodoController {
   
   @PostMapping("/add")
   public String postNewTodo(@ModelAttribute Todo newTodo){
-    cruds.save(newTodo);
+    todoService.addTodo(newTodo);
     return "redirect:/todo/";
   }
   
   @PostMapping("{todoId}/delete")
   public String deleteTodo(@PathVariable int todoId){
-    cruds.delete(todoId);
+    todoService.deleteTodo(todoId);
     return "redirect:/todo/";
   }
   
   @GetMapping("{todoId}/edit")
   public String getEditPage(@PathVariable int todoId, Model model){
-    model.addAttribute("todo", cruds.findOne(todoId));
+    model.addAttribute("todo", todoService.getTodo(todoId));
     return "edit";
   }
   
   @PostMapping("{todoId}/edit")
   public String editTodo(@PathVariable int todoId, @ModelAttribute Todo todo){
     todo.setID(todoId);
-    cruds.save(todo);
+    todoService.modifyTodo(todo);
     return "redirect:/todo/";
   }
 }
