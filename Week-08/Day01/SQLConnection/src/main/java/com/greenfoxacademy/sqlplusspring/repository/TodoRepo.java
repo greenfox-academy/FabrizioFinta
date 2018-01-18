@@ -10,6 +10,8 @@ import java.util.List;
 public interface TodoRepo extends CrudRepository<Todo, Integer> {
 
   List<Todo> findAllByTitleContainingOrderByTitle(String title);
-  List<Todo> findAllByIsDoneIs(boolean isDone);
-  List<Todo> findAllByIsDoneIsAndTitleContaining (boolean isDone, String title);
+  List<Todo> findAllByDoneIs(boolean isDone);
+  List<Todo> findAllByDoneIsAndTitleContaining (boolean isDone, String title);
+  List<Todo> findAllByDoneIsFalseAndAssigneeIsNull();
+  List<Todo> findAllByDoneIsFalseAndAssigneeIsNotNull();
 }

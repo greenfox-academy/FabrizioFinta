@@ -15,7 +15,9 @@ public class HelloMultilangWebController {
   public String helloMulti(Model model){
       model.addAttribute("name", hellos[randomWithRange(0,hellos.length-1)]);
       model.addAttribute("size", randomWithRange(10,300));
-      model.addAttribute("color", "rgb(" + randomWithRange(0,255) + "," + randomWithRange(0,255) + "," + randomWithRange(0,255) + ")");
+      model.addAttribute("color", "rgb(" + randomWithRange(0,255) + ","
+                                          + randomWithRange(0,255) + ","
+                                          + randomWithRange(0,255) + ")");
     return "helloMulti";
   }
   

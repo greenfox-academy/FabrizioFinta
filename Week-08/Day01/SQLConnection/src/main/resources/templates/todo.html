@@ -15,32 +15,37 @@
         <th> Title </th>
         <th> Done </th>
         <th> Urgent </th>
+        <th> Assignee </th>
     </tr>
     <tr th:each="todo : ${todos}" th:object="${todo}">
-        <td th:text="*{ID}">Id</td>
+        <td th:text="*{id}">Id</td>
         <td th:text="*{title}">title</td>
-        <td th:text="*{isDone}">done</td>
-        <td th:text="*{isUrgent}">urgent</td>
+        <td th:text="*{done}">done</td>
+        <td th:text="*{urgent}">urgent</td>
+        <td th:text="*{assignee}">assignee</td>
         <td>
-            <form action="#" th:action="@{*{ID}} + '/delete'" method="POST">
+            <form action="#" th:action="@{*{id}} + '/delete'" method="POST">
             <input type="submit" value="delete"/>
             </form>
         </td>
         <td>
-            <form action="#" th:action="@{*{ID}} + '/edit'" method="GET">
+            <form action="#" th:action="@{*{id}} + '/edit'" method="GET">
                 <input type="submit" value="edit"/>
             </form>
         </td>
     </tr>
 </table>
 <form action="/todo/" method="get">
-        <input th:type="text" name="title"/>
+        <input type="text" th:placeholder="${searchPlaceholder}" name="title"/>
         <select name="isActive">
             <option value="">All</option>
             <option value="true">Done</option>
             <option value="false">Undone</option>
         </select>
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Search"/>
+</form>
+<form action="#" th:action="@{'assigneeManager'}" method="get">
+    <input type="submit" value="Manage assignees"/>
 </form>
 </body>
 </html>

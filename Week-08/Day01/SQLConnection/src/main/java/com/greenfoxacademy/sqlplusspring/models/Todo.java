@@ -1,56 +1,30 @@
 package com.greenfoxacademy.sqlplusspring.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "todo")
 public class Todo {
   
   @Id
   @GeneratedValue (strategy = GenerationType.AUTO)
-  private int ID;
+  private int id;
   private String title;
-  private boolean isUrgent;
-  private boolean isDone;
+  private boolean urgent;
+  private boolean done;
   
-  public Todo() {
-  }
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "assignee_id")
+  private Assignee assignee;
   
   public Todo(String title) {
     this.title = title;
-  }
-  
-  public int getID() {
-    return ID;
-  }
-  
-  public void setID(int ID) {
-    this.ID = ID;
-  }
-  
-  public String getTitle() {
-    return title;
-  }
-  
-  public void setTitle(String title) {
-    this.title = title;
-  }
-  
-  public boolean getIsUrgent() {
-    return isUrgent;
-  }
-  
-  public void setIsUrgent(boolean isUrgent) {
-    this.isUrgent = isUrgent;
-  }
-  
-  public boolean getIsDone() {
-    return isDone;
-  }
-  
-  public void setIsDone(boolean isDone) {
-    this.isDone = isDone;
   }
 }

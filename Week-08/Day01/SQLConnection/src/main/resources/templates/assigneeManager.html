@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>Assignee manager</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>E-mail</th>
+    </tr>
+        <tr th:each="assignee : ${assigneeList}" th:object="${assignee}">
+                <td th:text="*{id}">
+                </td>
+                <td th:text="*{name}">
+                </td>
+                <td th:text="*{email}">
+                </td>
+                <td>
+                    <form action="#" th:action="@{/assigneeManager}" method="post">
+                        <input type="submit" name="operation" value="edit"/>
+                        <input type="hidden" name="id" th:value="*{id}"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="#" th:action="@{/assigneeManager}" method="post">
+                        <input type="submit" name="operation" value="delete"/>
+                        <input type="hidden" name="id" th:value="*{id}"/>
+                    </form>
+                </td>
+
+        </tr>
+</table>
+<div>
+    <h2>Add a new assignee</h2>
+    <form action="#" th:object="${newAssignee}" th:action="@{addAssignee}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label for="assignee_name">Name:</label>
+        <input id="assignee_name" type="text" placeholder="John Doe" th:field="*{name}"/>
+        <label for="assignee_email"></label>
+        <input id="assignee_email" type="text" placeholder="someone@example.com" th:field="*{email}"/>
+        <input type="submit" value="Add me"/>
+    </form>
+</div>
+</body>
+</html>

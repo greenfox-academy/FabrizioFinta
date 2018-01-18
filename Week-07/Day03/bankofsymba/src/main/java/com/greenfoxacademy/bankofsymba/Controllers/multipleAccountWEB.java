@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,10 +35,14 @@ public class multipleAccountWEB {
     return "allAccounts";
   }
   
-  @PostMapping("/allAccounts")
-  public ModelAndView modifyElement(@ModelAttribute BankAccount account, BindingResult bindingResult){
-    
-    account.increaseBalance();
+  @PostMapping("/allAccounts/{accountName}")
+  public ModelAndView modifyElement(@PathVariable String accountName){
+    BankAccount balancedAccount = new BankAccount();
+    for (BankAccount account: accounts) {
+      if (account.getName().equals(accountName)) {
+        balancedAccount.increaseBalance();
+      }
+    }
     return new ModelAndView("redirect:/allAccounts");
   }
 }

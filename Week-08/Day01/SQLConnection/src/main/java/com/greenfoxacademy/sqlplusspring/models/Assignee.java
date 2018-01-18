@@ -1,11 +1,16 @@
 package com.greenfoxacademy.sqlplusspring.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 public class Assignee {
   
   @Id
@@ -14,4 +19,6 @@ public class Assignee {
   private String name;
   private String email;
   
+  @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY, mappedBy = "assignee")
+  private List<Todo> todo;
 }
