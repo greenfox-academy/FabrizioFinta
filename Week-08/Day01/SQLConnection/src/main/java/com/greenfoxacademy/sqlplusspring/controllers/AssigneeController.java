@@ -19,7 +19,7 @@ public class AssigneeController {
   @PostMapping("/addAssignee")
   public String addAssignee(@ModelAttribute Assignee assignee){
     assigneeService.addAssignee(assignee);
-    return "redirect:editAssignee";
+    return "redirect:assigneeManager";
   }
   
   @GetMapping("/assigneeManager")

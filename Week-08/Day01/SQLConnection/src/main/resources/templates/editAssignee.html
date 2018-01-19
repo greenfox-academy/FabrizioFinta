@@ -22,9 +22,9 @@
         <td th:text="*{title}"></td>
         <td th:text="*{urgent}"></td>
         <td>
-            <form action="#" th:action="@{todo}" method="post">
+            <form action="#" th:action="@{${assignee.id} + '/todo'}" method="post">
                 <input type="hidden" name="todoId" th:value="*{id}"/>
-                <input type="button" value="subscribe"/>
+                <input type="submit" value="subscribe"/>
             </form>
         </td>
     </tr>
