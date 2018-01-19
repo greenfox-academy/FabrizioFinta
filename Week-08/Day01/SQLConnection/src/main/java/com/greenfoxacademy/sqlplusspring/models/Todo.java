@@ -20,7 +20,7 @@ public class Todo {
   private boolean urgent;
   private boolean done;
   
-  @OneToOne(fetch = FetchType.LAZY)
+  @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "assignee_id")
   private Assignee assignee;
   

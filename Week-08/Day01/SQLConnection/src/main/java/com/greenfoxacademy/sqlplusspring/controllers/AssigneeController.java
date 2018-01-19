@@ -45,6 +45,7 @@ public class AssigneeController {
   public String editAssigneePage(@PathVariable int id, Model model){
     model.addAttribute("assignee", assigneeService.getAssignee(id));
     model.addAttribute("availableTodos", todoService.filterTodosByAvailability(true));
+    model.addAttribute("ownedTodos", todoService.filterTodosByAssignee(id));
     return "editAssignee";
   }
   
@@ -57,7 +58,7 @@ public class AssigneeController {
   
   @PostMapping("/editAssignee/{id}/todo")
   public String assignTodo(@PathVariable int id, @RequestParam (value = "todoId") int todoId){
-    todoService.assignTodo(todoId, id);
+    todoService.assignTodo(id, todoId);
     return "redirect:editAssignee";
   }
 }

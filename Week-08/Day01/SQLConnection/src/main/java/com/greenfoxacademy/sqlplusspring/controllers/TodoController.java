@@ -14,10 +14,14 @@ public class TodoController {
   @Autowired
   TodoService todoService;
   
+  @GetMapping("")
+  public String loginPage(){
+    return "redirect:todo";
+  }
   
-  @GetMapping({"", "/list"})
+  @GetMapping("todo")
   public String list(@RequestParam (value = "title", required = false) String title, @RequestParam (value = "isActive", required = false) Boolean isActive, Model model) {
-    if (title != null && isActive != null){
+    /*if (title != null && isActive != null){
       model.addAttribute("todos", todoService.filterIsDoneORTitle(title,isActive));}
     else if (title == null && isActive == null){
       model.addAttribute("todos", todoService.getAllTodo());
@@ -25,12 +29,13 @@ public class TodoController {
       model.addAttribute("todos", todoService.filterTitle(title));
     } else if (title == null && isActive != null) {
       model.addAttribute("todos", todoService.filterIsDone(isActive));
-    }
+    }*/
+    model.addAttribute("todos",todoService.filterIsDoneORTitle(title, isActive));
     model.addAttribute("searchPlaceholder", title);
     return "todo";
   }
   
-  @GetMapping("/add")
+  @GetMapping("add")
   public String addTodo(Model model){
     model.addAttribute("todo", new Todo());
     return "add";

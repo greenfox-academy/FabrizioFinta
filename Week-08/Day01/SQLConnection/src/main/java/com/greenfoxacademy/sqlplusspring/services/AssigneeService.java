@@ -13,6 +13,9 @@ public class AssigneeService {
   @Autowired
   AssigneeRepo assigneeRepo;
   
+  @Autowired
+  TodoService todoService;
+  
   public List<Assignee> getAllAssignee(){
     return (List<Assignee>) assigneeRepo.findAll();
   }
@@ -32,5 +35,4 @@ public class AssigneeService {
   public void modifyAssignee(Assignee assignee){
     assigneeRepo.save(assignee);
   }
-  
 }

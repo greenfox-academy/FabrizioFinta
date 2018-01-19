@@ -6,6 +6,7 @@ import com.greenfoxacademy.sqlplusspring.repository.TodoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,7 +26,11 @@ public class TodoService {
   }
   
   public List<Todo> filterIsDoneORTitle(String title, Boolean isDone) {
-    return todoRepo.findAllByDoneIsAndTitleContaining(isDone, title);
+    if(title != null || isDone != null){
+      return todoRepo.findAllByDoneIsOrTitleContains(isDone, title);
+    } else {
+      return (List<Todo>) todoRepo.findAll();
+    }
   }
   
   public List<Todo> filterIsDone(boolean isDone) {
@@ -44,6 +49,13 @@ public class TodoService {
     }
   }
   
+  public List<Todo> filterTodosByAssignee(int assigneeId){
+    if (assigneeService.getAssignee(assigneeId).getTodos().isEmpty()){
+      return assigneeService.getAssignee(assigneeId).getTodos();
+    }
+    return todoRepo.findAllByAssigneeContains(assigneeService.getAssignee(assigneeId).getName());
+  }
+  
   public void addTodo(Todo todo) {
     todoRepo.save(todo);
   }
@@ -57,9 +69,8 @@ public class TodoService {
     todoRepo.save(todo);
   }
   
-  public void assignTodo(int todoId, int assigneeId) {
-    getTodo(todoId)
-            .setAssignee(assigneeService
-                                 .getAssignee(assigneeId));
+  public void assignTodo(int assigneeId, int todoId){
+    getTodo(todoId).setAssignee(assigneeService.getAssignee(assigneeId));
+    modifyTodo(getTodo(todoId));
   }
 }

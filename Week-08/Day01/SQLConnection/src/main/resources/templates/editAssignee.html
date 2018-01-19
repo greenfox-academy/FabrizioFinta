@@ -29,5 +29,17 @@
         </td>
     </tr>
 </table>
+<table>
+    <tr>
+        <th>TODO</th>
+        <th>URGENT</th>
+        <th>IS DONE</th>
+        <th>DELETE</th>
+    </tr>
+    <tr th:each="todo : ${ownedTodos}" th:object="${todo}">
+        <td th:text="*{title}"></td>
+        <td th:text="*{urgent}"></td>
+    </tr>
+</table>
 </body>
 </html>

@@ -19,6 +19,10 @@ public class Assignee {
   private String name;
   private String email;
   
-  @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY, mappedBy = "assignee")
-  private List<Todo> todo;
+  @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER, mappedBy = "assignee")
+  private List<Todo> todos;
+  
+  public void addTodo(Todo todo){
+    todos.add(todo);
+  }
 }
