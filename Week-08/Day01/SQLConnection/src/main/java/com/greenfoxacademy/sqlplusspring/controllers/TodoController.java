@@ -21,18 +21,17 @@ public class TodoController {
   
   @GetMapping("todo")
   public String list(@RequestParam (value = "title", required = false) String title, @RequestParam (value = "isActive", required = false) Boolean isActive, Model model) {
-    /*if (title != null && isActive != null){
-      model.addAttribute("todos", todoService.filterIsDoneORTitle(title,isActive));}
-    else if (title == null && isActive == null){
+    if(title != null || isActive != null) {
+      model.addAttribute("todos", todoService.filetTitleOrIsDone(title,isActive));
+    } else {
       model.addAttribute("todos", todoService.getAllTodo());
-    } else if (title != null && isActive == null){
-      model.addAttribute("todos", todoService.filterTitle(title));
-    } else if (title == null && isActive != null) {
-      model.addAttribute("todos", todoService.filterIsDone(isActive));
-    }*/
-    model.addAttribute("todos",todoService.filterIsDoneORTitle(title, isActive));
+      title = "Search...";
+    }
     model.addAttribute("searchPlaceholder", title);
     return "todo";
+  }
+  
+  private void listAdderModelAttributor(Model model, Boolean isActive, String title) {
   }
   
   @GetMapping("add")

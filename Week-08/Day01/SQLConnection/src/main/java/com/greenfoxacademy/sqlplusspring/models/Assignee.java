@@ -21,8 +21,4 @@ public class Assignee {
   
   @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER, mappedBy = "assignee")
   private List<Todo> todos;
-  
-  public void addTodo(Todo todo){
-    todos.add(todo);
-  }
 }

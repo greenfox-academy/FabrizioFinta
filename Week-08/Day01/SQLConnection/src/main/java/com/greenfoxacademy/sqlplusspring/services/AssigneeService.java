@@ -1,6 +1,7 @@
 package com.greenfoxacademy.sqlplusspring.services;
 
 import com.greenfoxacademy.sqlplusspring.models.Assignee;
+import com.greenfoxacademy.sqlplusspring.models.Todo;
 import com.greenfoxacademy.sqlplusspring.repository.AssigneeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
