@@ -33,9 +33,9 @@ public class Exercise2 {
     if(name == null && title == null){
         errorMessage.setError("Please provide inputs!");
       } else if(name == null){
-          errorMessage.setError("Please provide a name");
+          errorMessage.setError("Please provide a name!");
       } else if (title == null){
-          errorMessage.setError("Please provide a title");
+          errorMessage.setError("Please provide a title!");
     }
   }
 }
