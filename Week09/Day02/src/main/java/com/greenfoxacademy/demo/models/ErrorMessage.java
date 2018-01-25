@@ -11,6 +11,5 @@ import org.springframework.stereotype.Component;
 @Component
 public class ErrorMessage extends ModelAndError{
   
-  private String Error;
-  
+  private String error;
 }
