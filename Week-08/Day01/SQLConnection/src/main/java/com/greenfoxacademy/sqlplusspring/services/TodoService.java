@@ -49,11 +49,11 @@ public class TodoService {
   }
   
   public List<Todo> filetTitleOrIsDone(String title, Boolean isDone){
-    if (title != null && isDone != null) {
+    if (!title.isEmpty() && isDone != null) {
        return filterIsDoneAndTitle(title, isDone);
-    } else if (title != null && isDone == null) {
+    } else if (!title.isEmpty() && isDone == null) {
       return filterTitle(title);
-    } else if (title == null && isDone != null) {
+    } else if (title.isEmpty() && isDone != null) {
       return filterIsDone(isDone);
     } else {
       return getAllTodo();

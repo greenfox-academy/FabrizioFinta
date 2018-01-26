@@ -8,18 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@Controller("/todo")
 public class TodoController {
   
   @Autowired
   TodoService todoService;
   
   @GetMapping("")
-  public String loginPage(){
-    return "redirect:todo";
-  }
-  
-  @GetMapping("todo")
   public String list(@RequestParam (value = "title", required = false) String title, @RequestParam (value = "isActive", required = false) Boolean isActive, Model model) {
     if(title != null || isActive != null) {
       model.addAttribute("todos", todoService.filetTitleOrIsDone(title,isActive));
